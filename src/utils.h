@@ -7,6 +7,8 @@
 
 #include <pthread.h>
 
+#define SIZEOF_ARRAY(ARRAY) (sizeof(ARRAY) * sizeof(ARRAY[0]))
+
 _Noreturn void vdief(char const fmt[], va_list args);
 _Noreturn void dief(char const fmt[], ...);
 _Noreturn void die(char const msg[]);

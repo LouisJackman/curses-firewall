@@ -10,7 +10,6 @@
 
 enum ui_section_tag {
     ui_section_tag_chains,
-    ui_section_tag_tables
 };
 
 enum ui_state_change_tag {
@@ -27,7 +26,10 @@ struct ui_state_change {
 
 struct ui_option {
     char const *const title;
+    size_t title_len;
+
     char const *const description;
+    size_t description_len;
 
     struct ui_state_change (*const activate)(
         struct ui_option const *option,
