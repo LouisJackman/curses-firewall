@@ -34,34 +34,15 @@ void ui_option_draw(
     int x, y;
     getyx(window, y, x);
 
-    int max_x, max_y;
-    getmaxyx(window, max_y, max_x);
-
     if (state == ui_selection_state_active) {
         attron(A_REVERSE);
     }
-
     mvprintw(y, 4, "%s", option->title);
     if (state == ui_selection_state_active) {
         attroff(A_REVERSE);
     }
-    for (
-        int clearing_x = (option->title_len + 3);
-        clearing_x < (max_x - 4);
-        ++clearing_x
-    ) {
-        mvprintw(y, clearing_x, " ");
-    }
 
     mvprintw(y + 1, 6, "%s", option->description);
-    for (
-        int clearing_x = (option->description_len + 6);
-        clearing_x < (max_x - 4);
-        ++clearing_x
-    ) {
-        mvprintw(y + 1, clearing_x, " ");
-    }
-
     move(y + 3, x);
 }
 
@@ -254,22 +235,23 @@ struct ui_section make_main_section(void) {
 
 void start_ui_loop(WINDOW *window) {
     int entered;
-    clear();
-    ui_section_draw_header();
 
     struct ui_section main_section = make_main_section();
     struct ui_section chain_section = make_chain_section(&main_section);
     struct ui_section *current_section = &main_section;
 
     for (bool stop = false; !stop; ) {
-        refresh();
+        clear();
+        ui_section_draw_header();
         ui_section_draw(current_section, window);
+
         entered = getch();
         struct ui_state_change result = on_key(
             current_section,
             entered,
             window
         );
+
         switch (result.tag) {
         case ui_state_change_tag_exit_requested:
             stop = true;
