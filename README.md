@@ -1,6 +1,6 @@
 # curses-firewall
 
-[![Build Status](https://travis-ci.org/LouisJackman/curses-firewall.svg?branch=master)](https://travis-ci.org/LouisJackman/curses-firewall)
+[![CircleCI](https://circleci.com/gh/LouisJackman/curses-firewall.svg?style=svg)](https://circleci.com/gh/LouisJackman/curses-firewall)
 
 *NOTE: this project is dormant and was barely started, so don't bother looking
 into it until development picks back up.*
