@@ -7,3 +7,6 @@ into it until development picks back up.*
 
 A curses-based UI for generating and saving rulesets for iptables; well,
 actually just a prototype of the UI for now.
+
+All commits must be run through `clang-format` with the default settings.
+
