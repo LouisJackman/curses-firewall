@@ -10,3 +10,8 @@ actually just a prototype of the UI for now.
 
 All commits must be run through `clang-format` with the default settings.
 
+This repository is hosted [on
+GitLab.com](https://gitlab.com/louis.jackman/curses-firewall). If you're
+seeing this on GitHub, you're on the official GitHub mirror. [Go to
+GitLab](https://gitlab.com/louis.jackman/curses-firewall) to contribute.
+
