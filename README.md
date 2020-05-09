@@ -1,7 +1,5 @@
 # curses-firewall
 
-[![CircleCI](https://circleci.com/gh/LouisJackman/curses-firewall.svg?style=svg)](https://circleci.com/gh/LouisJackman/curses-firewall)
-
 *NOTE: this project is dormant and was barely started, so don't bother looking
 into it until development picks back up.*
 
