@@ -9,5 +9,5 @@ build:
   script: make
   artifacts:
     paths:
-      curses-firewall
+      - curses-firewall
 
