@@ -1,5 +1,7 @@
 # curses-firewall
 
+[![pipeline status](https://gitlab.com/louis.jackman/curses-firewall/badges/master/pipeline.svg)](https://gitlab.com/louis.jackman/curses-firewall/-/commits/master)
+
 *NOTE: this project is dormant and was barely started, so don't bother looking
 into it until development picks back up.*
 
