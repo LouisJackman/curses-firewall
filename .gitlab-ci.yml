@@ -1,13 +1,22 @@
+# You can override the included template(s) by including variable overrides
+# See https://docs.gitlab.com/ee/user/application_security/sast/#customizing-the-sast-settings
+# Note that environment variables can be set in several places
+# See https://docs.gitlab.com/ee/ci/variables/#priority-of-environment-variables
 image: debian:buster-20200422-slim
-
 before_script:
-  - DEBIAN_FRONTEND=noninteractive apt-get update
-  - DEBIAN_FRONTEND=noninteractive apt-get install --yes --no-install-recommends libncurses-dev libc6-dev make gcc
-
+- DEBIAN_FRONTEND=noninteractive apt-get update
+- DEBIAN_FRONTEND=noninteractive apt-get install --yes --no-install-recommends libncurses-dev libc6-dev make gcc
 build:
   stage: build
   script: make
   artifacts:
     paths:
-      - curses-firewall
-
+    - curses-firewall
+stages:
+- test
+sast:
+  variables:
+    SAST_DEFAULT_ANALYZERS: flawfinder
+  stage: test
+include:
+- template: Security/SAST.gitlab-ci.yml
