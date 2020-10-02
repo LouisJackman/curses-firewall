@@ -3,9 +3,6 @@
 # Note that environment variables can be set in several places
 # See https://docs.gitlab.com/ee/ci/variables/#priority-of-environment-variables
 image: debian:buster-20200422-slim
-before_script:
-- DEBIAN_FRONTEND=noninteractive apt-get update
-- DEBIAN_FRONTEND=noninteractive apt-get install --yes --no-install-recommends libncurses-dev libc6-dev make gcc
 
 stages:
 - build
@@ -13,7 +10,10 @@ stages:
 
 build:
   stage: build
-  script: make
+  script: |-
+    DEBIAN_FRONTEND=noninteractive apt-get update
+    DEBIAN_FRONTEND=noninteractive apt-get install --yes --no-install-recommends libncurses-dev libc6-dev make gcc
+    make
   artifacts:
     paths:
     - curses-firewall
